@@ -22,10 +22,10 @@ A fast, simple &amp;amp; powerful blog framework
 A fast, simple &amp;amp; powerful blog framework
 
 “一个快速，简单，又强大的博客框架”，啧啧啧，这描述，简直是已经到了福利级别了啊，来来来，让我们hexo到底多福利！">
-<meta property="og:image" content="http://yoursite.com/D:\001.png">
-<meta property="og:image" content="http://yoursite.com/D:\002.png">
-<meta property="og:image" content="http://yoursite.com/D:\003.png">
-<meta property="og:updated_time" content="2017-02-24T15:49:17.155Z">
+<meta property="og:image" content="http://yoursite.com/img/001.png">
+<meta property="og:image" content="http://yoursite.com/img/002.png">
+<meta property="og:image" content="http://yoursite.com/img/003.png">
+<meta property="og:updated_time" content="2017-02-24T16:10:17.115Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用hexo+github搭建博客教程">
 <meta name="twitter:description" content="首先简单介绍下本篇教程的主角Hexo,官网的介绍是这样的：
@@ -33,7 +33,7 @@ A fast, simple &amp;amp; powerful blog framework
 A fast, simple &amp;amp; powerful blog framework
 
 “一个快速，简单，又强大的博客框架”，啧啧啧，这描述，简直是已经到了福利级别了啊，来来来，让我们hexo到底多福利！">
-<meta name="twitter:image" content="http://yoursite.com/D:\001.png">
+<meta name="twitter:image" content="http://yoursite.com/img/001.png">
   
     <link rel="alternative" href="/atom.xml" title="Sherlockkk的个人博客" type="application/atom+xml">
   
@@ -206,12 +206,12 @@ A fast, simple &amp;amp; powerful blog framework
 <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo</div></pre></td></tr></table></figure>
 <h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><p>在你电脑的某个你满意的地方找个能存放代码的文件夹初始化，最好新建一个吧，以后就不动了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init</div></pre></td></tr></table></figure></p>
 <p>hexo会自动下载一些文件到这个目录，包括node_modules，目录结构如下图：</p>
-<p><img src="D:\001.png" alt="目录结构"></p>
+<p><img src="/img/001.png" alt="目录结构"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo g <span class="comment">#生成</span></div><div class="line">$ hexo s <span class="comment">#启动服务</span></div></pre></td></tr></table></figure>
-<p>执行以上命令之后，hexo就会在public文件夹生成相关html文件，这些文件就是将来要提交到github去的页面<br><img src="D:\002.png" alt="public文件夹"></p>
+<p>执行以上命令之后，hexo就会在public文件夹生成相关html文件，这些文件就是将来要提交到github去的页面<br><img src="/img/002.png" alt="public文件夹"></p>
 <p>第一次初始化的时候hexo会有个默认页面，因为我的失误忘记了截图，所以就不上图了，当你hexo s启动服务的时候可以按照提示进浏览器多瞅几眼，之所以要多瞅几眼是因为当你瞅多了的时候就默认主题就会丑到你23333333，所以得更换一个更养眼的主题不是。这里是<a href="https://hexo.io/themes" target="_blank" rel="external">官方主题</a>,你可以进去挑自己喜欢的主题来安装，下面说一下安装主题。</p>
 <p>比如我的主题是<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">yilia</a>，首先肯定是下载这个主题，在你的hexo根目录下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/litten/hexo-theme-yilia.git themes/yilia</div></pre></td></tr></table></figure></p>
-<p>下载后的主题都在这里<br><img src="D:\003.png" alt="主题"><br>那个<em>landscape</em>就是hexo默认主题</p>
+<p>下载后的主题都在这里<br><img src="/img/003.png" alt="主题"><br>那个<em>landscape</em>就是hexo默认主题</p>
 <p>修改<strong>_config.yml</strong>中的<strong>theme: landscape</strong>改为<strong>theme: yilia</strong>，然后重新执行<strong>hexo g</strong>来重新生成。</p>
 <p>此时你可以重新<strong>hexo s</strong>启动服务来预览一下你的主题，觉得满意的话就可以上传到github了</p>
 <h1 id="上传github"><a href="#上传github" class="headerlink" title="上传github"></a>上传github</h1><p>上传github非常之简单，只要<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d</div></pre></td></tr></table></figure></p>
