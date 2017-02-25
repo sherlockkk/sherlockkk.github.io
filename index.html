@@ -160,14 +160,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>当函数的参数(个数)不确定时，可以使用<strong>*args</strong>和<strong>**kwargs</strong>，*args表示参数没有key值，也就是无名参数，是一个tuple，**表示参数有key值，也就是关键字参数，是一个dict。</p>
-<hr>
-<p>代码示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">def foo(*args, **kwargs):</div><div class="line">    print(&apos;args = &apos;, args)</div><div class="line">    print(&apos;kwargs = &apos;, kwargs)</div><div class="line">    print(&apos;---------------------------------------&apos;)</div><div class="line"></div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    foo(1, 2, 3, 4)</div><div class="line">    foo(a=1, b=2, c=3)</div><div class="line">    foo(1, 2, 3, 4, a=1, b=2, c=3)</div><div class="line">    foo(&apos;a&apos;, 1, None, a=1, b=&apos;2&apos;, c=3)</div></pre></td></tr></table></figure></p>
-<p>输出结果为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">args =  (1, 2, 3, 4)</div><div class="line">kwargs =  &#123;&#125;</div><div class="line">---------------------------------------</div><div class="line">args =  ()</div><div class="line">kwargs =  &#123;&apos;c&apos;: 3, &apos;a&apos;: 1, &apos;b&apos;: 2&#125;</div><div class="line">---------------------------------------</div><div class="line">args =  (1, 2, 3, 4)</div><div class="line">kwargs =  &#123;&apos;c&apos;: 3, &apos;a&apos;: 1, &apos;b&apos;: 2&#125;</div><div class="line">---------------------------------------</div><div class="line">args =  (&apos;a&apos;, 1, None)</div><div class="line">kwargs =  &#123;&apos;c&apos;: 3, &apos;a&apos;: 1, &apos;b&apos;: &apos;2&apos;&#125;</div><div class="line">---------------------------------------</div></pre></td></tr></table></figure>
-<hr>
-<p>需要特别提出注意的一点是，在同时使用*args和**kwargs时，*args参数必须要在**kwargs前，像foo(a=1, b=’2’, c=3, a’, 1, None, )这样调用的话，会提示语法错误<strong>“SyntaxError: non-keyword arg after keyword arg”</strong>。</p>
-
+        <p>当函数的参数(个数)不确定时，可以使用<strong>*args</strong>和<strong>**kwargs</strong>，*args表示参数没有key值，也就是无名参数，是一个tuple，**表示参数有key值，也就是关键字参数，是一个dict。<br>
+        
+          <a class="article-more-a" href="/2017/02/25/python中-args和-kwargs的区别/#more">more >></a>
+        
       
 
       
@@ -462,15 +458,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">教程</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
