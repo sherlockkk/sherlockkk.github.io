@@ -6,17 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 随笔 | Sherlockkk的个人博客</title>
+  <title>python中*args和**kwargs的区别 | Sherlockkk的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="每天学习一点点，每天进步一点点...">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Sherlockkk的个人博客">
-<meta property="og:url" content="http://yoursite.com/tags/随笔/index.html">
+  <meta name="description" content="当函数的参数(个数)不确定时，可以使用*args和**kwargs，*args表示参数没有key值，也就是无名参数，是一个tuple，**表示参数有key值，也就是关键字参数，是一个dict。
+
+代码示例：1234567891011def foo(*args, **kwargs):    print(&amp;apos;args = &amp;apos;, args)    print(&amp;apos;kwargs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python中*args和**kwargs的区别">
+<meta property="og:url" content="http://yoursite.com/2017/02/25/python中-args和-kwargs的区别/index.html">
 <meta property="og:site_name" content="Sherlockkk的个人博客">
-<meta property="og:description" content="每天学习一点点，每天进步一点点...">
+<meta property="og:description" content="当函数的参数(个数)不确定时，可以使用*args和**kwargs，*args表示参数没有key值，也就是无名参数，是一个tuple，**表示参数有key值，也就是关键字参数，是一个dict。
+
+代码示例：1234567891011def foo(*args, **kwargs):    print(&amp;apos;args = &amp;apos;, args)    print(&amp;apos;kwargs">
+<meta property="og:updated_time" content="2017-02-25T14:39:16.185Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sherlockkk的个人博客">
-<meta name="twitter:description" content="每天学习一点点，每天进步一点点...">
+<meta name="twitter:title" content="python中*args和**kwargs的区别">
+<meta name="twitter:description" content="当函数的参数(个数)不确定时，可以使用*args和**kwargs，*args表示参数没有key值，也就是无名参数，是一个tuple，**表示参数有key值，也就是关键字参数，是一个dict。
+
+代码示例：1234567891011def foo(*args, **kwargs):    print(&amp;apos;args = &amp;apos;, args)    print(&amp;apos;kwargs">
   
     <link rel="alternative" href="/atom.xml" title="Sherlockkk的个人博客" type="application/atom+xml">
   
@@ -138,71 +145,176 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-python中-args和-kwargs的区别" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/25/心上人/" class="archive-article-date">
-  	<time datetime="2017-02-25T05:07:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-25</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/25/心上人/">心上人</a>
+    <h1 class="article-title" itemprop="name">
+      python中*args和**kwargs的区别
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/02/25/python中-args和-kwargs的区别/" class="archive-article-date">
+  	<time datetime="2017-02-25T13:49:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当函数的参数(个数)不确定时，可以使用<strong>*args</strong>和<strong>**kwargs</strong>，*args表示参数没有key值，也就是无名参数，是一个tuple，**表示参数有key值，也就是关键字参数，是一个dict。</p>
+<hr>
+<p>代码示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">def foo(*args, **kwargs):</div><div class="line">    print(&apos;args = &apos;, args)</div><div class="line">    print(&apos;kwargs = &apos;, kwargs)</div><div class="line">    print(&apos;---------------------------------------&apos;)</div><div class="line"></div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    foo(1, 2, 3, 4)</div><div class="line">    foo(a=1, b=2, c=3)</div><div class="line">    foo(1, 2, 3, 4, a=1, b=2, c=3)</div><div class="line">    foo(&apos;a&apos;, 1, None, a=1, b=&apos;2&apos;, c=3)</div></pre></td></tr></table></figure></p>
+<p>输出结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">args =  (1, 2, 3, 4)</div><div class="line">kwargs =  &#123;&#125;</div><div class="line">---------------------------------------</div><div class="line">args =  ()</div><div class="line">kwargs =  &#123;&apos;c&apos;: 3, &apos;a&apos;: 1, &apos;b&apos;: 2&#125;</div><div class="line">---------------------------------------</div><div class="line">args =  (1, 2, 3, 4)</div><div class="line">kwargs =  &#123;&apos;c&apos;: 3, &apos;a&apos;: 1, &apos;b&apos;: 2&#125;</div><div class="line">---------------------------------------</div><div class="line">args =  (&apos;a&apos;, 1, None)</div><div class="line">kwargs =  &#123;&apos;c&apos;: 3, &apos;a&apos;: 1, &apos;b&apos;: &apos;2&apos;&#125;</div><div class="line">---------------------------------------</div></pre></td></tr></table></figure>
+<hr>
+<p>需要特别提出注意的一点是，在同时使用*args和**kwargs时，*args参数必须要在**kwargs前，像foo(a=1, b=’2’, c=3, a’, 1, None, )这样调用的话，会提示语法错误<strong>“SyntaxError: non-keyword arg after keyword arg”</strong>。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢土豪请我喝可乐<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/005.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/004.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
+        			<a href="/categories/python/" class="article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/02/25/python中-args和-kwargs的区别/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/02/25/心上人/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">心上人</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -225,9 +337,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
