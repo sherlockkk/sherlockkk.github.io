@@ -6,17 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: python | Sherlockkk的个人博客</title>
+  <title>论如何对Java代码进行基本优化 | Sherlockkk的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="每天学习一点点，每天进步一点点...">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Sherlockkk的个人博客">
-<meta property="og:url" content="http://yoursite.com/tags/python/index.html">
+  <meta name="description" content="0、不要过度依赖GC内存抖动是指在短时间内有大量的对象被创建或者被回收的现象。内存抖动常出现的原因是频繁的在循环中创建对象，如果这种抖动很是频繁，会导致垃圾回收机制的频繁运行。
+内存泄漏是指某段内存在程序功能上已经不再需要了，但是垃圾回收机制在回收内存时检测那段内存还是被需要的，不能被回收，这种在程序中没有被使用但是又不能被回收的内存就是泄漏的内存。内存泄漏会导致一些内存没法被正常利用，可用内存减">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论如何对Java代码进行基本优化">
+<meta property="og:url" content="http://yoursite.com/2017/03/05/论如何对Java代码进行基本优化/index.html">
 <meta property="og:site_name" content="Sherlockkk的个人博客">
-<meta property="og:description" content="每天学习一点点，每天进步一点点...">
+<meta property="og:description" content="0、不要过度依赖GC内存抖动是指在短时间内有大量的对象被创建或者被回收的现象。内存抖动常出现的原因是频繁的在循环中创建对象，如果这种抖动很是频繁，会导致垃圾回收机制的频繁运行。
+内存泄漏是指某段内存在程序功能上已经不再需要了，但是垃圾回收机制在回收内存时检测那段内存还是被需要的，不能被回收，这种在程序中没有被使用但是又不能被回收的内存就是泄漏的内存。内存泄漏会导致一些内存没法被正常利用，可用内存减">
+<meta property="og:updated_time" content="2017-03-05T07:07:48.446Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sherlockkk的个人博客">
-<meta name="twitter:description" content="每天学习一点点，每天进步一点点...">
+<meta name="twitter:title" content="论如何对Java代码进行基本优化">
+<meta name="twitter:description" content="0、不要过度依赖GC内存抖动是指在短时间内有大量的对象被创建或者被回收的现象。内存抖动常出现的原因是频繁的在循环中创建对象，如果这种抖动很是频繁，会导致垃圾回收机制的频繁运行。
+内存泄漏是指某段内存在程序功能上已经不再需要了，但是垃圾回收机制在回收内存时检测那段内存还是被需要的，不能被回收，这种在程序中没有被使用但是又不能被回收的内存就是泄漏的内存。内存泄漏会导致一些内存没法被正常利用，可用内存减">
   
     <link rel="alternative" href="/atom.xml" title="Sherlockkk的个人博客" type="application/atom+xml">
   
@@ -138,71 +142,228 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-论如何对Java代码进行基本优化" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/25/python中-args和-kwargs的区别/" class="archive-article-date">
-  	<time datetime="2017-02-25T13:49:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-25</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/25/python中-args和-kwargs的区别/">python中*args和**kwargs的区别</a>
+    <h1 class="article-title" itemprop="name">
+      论如何对Java代码进行基本优化
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/03/05/论如何对Java代码进行基本优化/" class="archive-article-date">
+  	<time datetime="2017-03-05T07:03:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="0、不要过度依赖GC"><a href="#0、不要过度依赖GC" class="headerlink" title="0、不要过度依赖GC"></a>0、不要过度依赖GC</h3><p><strong>内存抖动</strong>是指在短时间内有大量的对象被创建或者被回收的现象。内存抖动常出现的原因是频繁的在循环中创建对象，如果这种抖动很是频繁，会导致垃圾回收机制的频繁运行。</p>
+<p><strong>内存泄漏</strong>是指某段内存在程序功能上已经不再需要了，但是垃圾回收机制在回收内存时检测那段内存还是被需要的，不能被回收，这种在程序中没有被使用但是又不能被回收的内存就是泄漏的内存。内存泄漏会导致一些内存没法被正常利用，可用内存减少，轻则增加垃圾回收机制运行频率，重则<strong>内存溢出</strong>（当系统需要分配一段内存，但现有内存在垃圾回收运行之后仍然不足，就会内溢出）</p>
+<p>常见的优化方式是在变量或对象使用完之后，将其手动置空。</p>
+<h3 id="1、优化循环语句"><a href="#1、优化循环语句" class="headerlink" title="1、优化循环语句"></a>1、优化循环语句</h3><ul>
+<li><p>避免重复运算</p>
+<pre><code>//错误写法
+for(int i = 0; i &lt;= vector.size(); i++){
+    ...
+}
+
+//正确写法
+int size = vector.size();
+for(int i = 0; i &lt;= size; i++){
+    ...
+}
+</code></pre><p>错误写法中vector对象的size方法每次循环判断中都会调用，虽然该方法执行起来很快，但是叠加起来的性能损耗还是很可怕的。</p>
+</li>
+</ul>
+<ul>
+<li>在循环逻辑中避免大开销的操作<br>所谓大开销的操作是指创建对象、捕获异常等需要大块内存消耗的操作。解决方案是在进行逻辑计算时应该尽量使用基本数据类型，比如int数组,string数组等，变量或对象使用后注意资源回收。</li>
+</ul>
+<h3 id="2、慎用异常机制"><a href="#2、慎用异常机制" class="headerlink" title="2、慎用异常机制"></a>2、慎用异常机制</h3><p>执行异常捕获语句（try catch）和抛出异常（throw）的代价很高。使用异常机制尽量把逻辑放在最外层，并且只用于错误处理，不要用于程序逻辑。</p>
+<h3 id="3、基本数据类型运算"><a href="#3、基本数据类型运算" class="headerlink" title="3、基本数据类型运算"></a>3、基本数据类型运算</h3><p>java中的基本数据类型有byte、short、int、long、float、double、boolean、char，运算方式有加减乘除、位移、布尔运算。<br>进行逻辑运算时需要注意：</p>
+<ul>
+<li>运算速度从快到慢依次是int&gt;short&gt;byte&gt;long&gt;double</li>
+<li>除法比乘法要慢很多，基本上除法的运算时间是乘法的9倍</li>
+<li>long类型的运算很慢，建议少用</li>
+<li>double运算速度和float相当</li>
+</ul>
+<h3 id="4、字符串操作使用StringBuffer提升效率"><a href="#4、字符串操作使用StringBuffer提升效率" class="headerlink" title="4、字符串操作使用StringBuffer提升效率"></a>4、字符串操作使用StringBuffer提升效率</h3><pre><code>//低效写法
+String appendStr = &quot;test&quot;;
+int time = 10000;
+str = &quot;&quot;;
+for(i = 0; i &lt;= time; i++){
+    str += appendStr;
+}
+
+//高效写法
+String appendStr = &quot;test&quot;;
+int time = 10000;
+StringBuffer sb = new StringBuffer();
+for(i = 0; i &lt;= time; i++){
+    sb.append(appendStr);
+}
+</code></pre><h3 id="5、合理使用数据集合"><a href="#5、合理使用数据集合" class="headerlink" title="5、合理使用数据集合"></a>5、合理使用数据集合</h3><p>java的数据集合可分为两种类型，即集合结构（Collection）和图表结构（Map），下面还包括了列表（List），栈（Stack），散列（HashMap）等</p>
+<p>Collection<br>|- List<br>| |- LinkedList (双向链表)<br>| |- ArrayList (高级数组)<br>| |<em> Vector (线程安全)<br>| |</em> Stack<br>|_ Set</p>
+<p>Map<br>|- Hashtable (线程安全)<br>|- HashMap<br>|_ WeakHashMap</p>
+<p>其中最常使用的是ArrayList ，该数据集合其实就是一个可变大小的数组，其次是LinkedList ，该集合用于实现栈（stack），队列（queue），双向队列（deque）。Hashtable是同步的 线程安全 。这些应该尽量使用ArrayList和HashMap，谨慎使用Vector和HashTable ，应为后两者为了保证线程安全而使用同步机制，系统开销比较大</p>
+<p>编码时尽量使用原生的数据结构如数组，枚举</p>
+<h3 id="6、慎用public-static-final"><a href="#6、慎用public-static-final" class="headerlink" title="6、慎用public static final"></a>6、慎用public static final</h3><ul>
+<li>如果一个变量或者数据被这样声明，那么我们就不能对这个变量进行任何修改了，这种数组也无法进行增删改查 以及排序等操作</li>
+<li>这种声明的数据在整个进程被销毁之前都会常驻内存，使用不当有可能会引起一些性能问题。</li>
+</ul>
+<h3 id="7、使用对象池提高效率"><a href="#7、使用对象池提高效率" class="headerlink" title="7、使用对象池提高效率"></a>7、使用对象池提高效率</h3><p>创建和释放对象会占用比较大的系统资源 即把常用的对象存放在一个对象池（对象集合）中，通过一定的策略高效调用已经存在的对象，避免大量的创建对象或销毁对象对象池 如数据库连接池 线程池</p>
+<h3 id="8、不要过度使用OOP"><a href="#8、不要过度使用OOP" class="headerlink" title="8、不要过度使用OOP"></a>8、不要过度使用OOP</h3><p>善于使用语言中的工具类<br>使用Log打印日志的系统资源开销也是不小的，在正式发布应用之前应该把程序中的Log调试代码关闭</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢土豪请我喝可乐<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/005.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/004.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">代码优化</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">编程技巧</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/python/" class="article-tag-list-link color2">python</a>
+        			<a href="/categories/java/" class="article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/05/论如何对Java代码进行基本优化/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/03/01/java设计模式之工厂模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java设计模式之工厂模式</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -225,9 +386,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
