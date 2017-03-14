@@ -8,20 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>IoC概述 | Sherlockkk的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.IoC是什么？Ioc—Inversion of Control，即“控制反转”.在Java开发中，Ioc意味着将你设计好的对象交给容器控制，而不是传统的在你的对象内部直接控制。
-1） 谁控制谁，控制什么：传统Java SE程序设计，我们直接在对象内部通过new进行创建对象，是程序主动去创建依赖对象；而IoC是有专门一个容器来创建这些对象，即由Ioc容器来控制对象的创建；谁控制谁？当然是IoC">
+  <meta name="description" content="1.IoC是什么？Ioc—Inversion of Control，即“控制反转”.在Java开发中，Ioc意味着将你设计好的对象交给容器控制，而不是传统的在你的对象内部直接控制。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IoC概述">
 <meta property="og:url" content="http://yoursite.com/2017/03/14/IoC概述/index.html">
 <meta property="og:site_name" content="Sherlockkk的个人博客">
-<meta property="og:description" content="1.IoC是什么？Ioc—Inversion of Control，即“控制反转”.在Java开发中，Ioc意味着将你设计好的对象交给容器控制，而不是传统的在你的对象内部直接控制。
-1） 谁控制谁，控制什么：传统Java SE程序设计，我们直接在对象内部通过new进行创建对象，是程序主动去创建依赖对象；而IoC是有专门一个容器来创建这些对象，即由Ioc容器来控制对象的创建；谁控制谁？当然是IoC">
+<meta property="og:description" content="1.IoC是什么？Ioc—Inversion of Control，即“控制反转”.在Java开发中，Ioc意味着将你设计好的对象交给容器控制，而不是传统的在你的对象内部直接控制。">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1197462-696f9a454f582b74.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-03-14T07:41:54.070Z">
+<meta property="og:updated_time" content="2017-03-14T07:43:21.862Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IoC概述">
-<meta name="twitter:description" content="1.IoC是什么？Ioc—Inversion of Control，即“控制反转”.在Java开发中，Ioc意味着将你设计好的对象交给容器控制，而不是传统的在你的对象内部直接控制。
-1） 谁控制谁，控制什么：传统Java SE程序设计，我们直接在对象内部通过new进行创建对象，是程序主动去创建依赖对象；而IoC是有专门一个容器来创建这些对象，即由Ioc容器来控制对象的创建；谁控制谁？当然是IoC">
+<meta name="twitter:description" content="1.IoC是什么？Ioc—Inversion of Control，即“控制反转”.在Java开发中，Ioc意味着将你设计好的对象交给容器控制，而不是传统的在你的对象内部直接控制。">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1197462-696f9a454f582b74.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="Sherlockkk的个人博客" type="application/atom+xml">
@@ -164,8 +161,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-IoC是什么？"><a href="#1-IoC是什么？" class="headerlink" title="1.IoC是什么？"></a>1.IoC是什么？</h2><p>Ioc—Inversion of Control，即“控制反转”.<br>在Java开发中，Ioc意味着将你设计好的对象交给容器控制，而不是传统的在你的对象内部直接控制。</p>
-<p>1） 谁控制谁，控制什么：传统<code>Java SE</code>程序设计，我们直接在对象内部通过new进行创建对象，是程序主动去创建依赖对象；而<code>IoC</code>是有专门一个容器来创建这些对象，即由<code>Ioc</code>容器来控制对象的创建；谁控制谁？当然是<code>IoC</code> 容器控制了对象；控制什么？那就是主要控制了外部资源获取（不只是对象包括比如文件等）。</p>
+        <h2 id="1-IoC是什么？"><a href="#1-IoC是什么？" class="headerlink" title="1.IoC是什么？"></a>1.IoC是什么？</h2><p>Ioc—Inversion of Control，即“控制反转”.<br>在Java开发中，Ioc意味着将你设计好的对象交给容器控制，而不是传统的在你的对象内部直接控制。<br><a id="more"></a><br>1） 谁控制谁，控制什么：传统<code>Java SE</code>程序设计，我们直接在对象内部通过new进行创建对象，是程序主动去创建依赖对象；而<code>IoC</code>是有专门一个容器来创建这些对象，即由<code>Ioc</code>容器来控制对象的创建；谁控制谁？当然是<code>IoC</code> 容器控制了对象；控制什么？那就是主要控制了外部资源获取（不只是对象包括比如文件等）。</p>
 <p>2） 为何是反转，哪些方面反转了：有反转就有正转，传统应用程序是由我们自己在对象中主动控制去直接获取依赖对象，也就是正转；而反转则是由容器来帮忙创建及注入依赖对象；为何是反转？因为由容器帮我们查找及注入依赖对象，对象只是被动的接受依赖对象，所以是反转；哪些方面反转了？依赖对象的获取被反转了。</p>
 <div class="image-package"><img src="http://upload-images.jianshu.io/upload_images/1197462-696f9a454f582b74.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><br><div class="image-caption"></div>
 
@@ -389,6 +385,10 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -397,19 +397,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">代码优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编程技巧</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -418,6 +406,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">代码优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">编程技巧</a>
               </li>
              
               <li class="article-tag-list-item">
